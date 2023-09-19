@@ -62,7 +62,7 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Link to Live demo](https://math-magicians-7hio.onrender.com/)
+- No live link
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
