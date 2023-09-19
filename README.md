@@ -12,7 +12,7 @@ This repository includes files with plain SQL that can be used to recreate a dat
   <img src="./logo.png" alt="logo" width="140"  height="auto" />
   <br/>
 
-  <h3><b>Math Magicians</b></h3>
+  <h3><b>Vet Clinic</b></h3>
 
 </div>
 
