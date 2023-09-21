@@ -94,3 +94,60 @@ JOIN owners ON animals.owner_id = owners.id
 group by owners.full_name
 order by count DESC
 limit 1;
+
+/* Day 4 */
+SELECT vets.name as vet, animals.name as animal, visits.date_of_visit from visits
+JOIN vets ON visits.vet_id = vets.id
+JOIN animals ON visits.animal_id = animals.id
+where vets.name like 'William Tatcher'
+order by visits.date_of_visit DESC
+limit 1;
+
+SELECT vets.name as vet, COUNT(DISTINCT visits.animal_id) from visits
+JOIN vets ON visits.vet_id = vets.id
+where vets.name like 'Stephanie Mendez'
+group by vets.name;
+
+SELECT vets.name as vet, species.name as speciality from specializations
+RIGHT JOIN vets ON specializations.vet_id = vets.id
+LEFT JOIN species ON specializations.species_id = species.id;
+
+SELECT vets.name as vet, animals.name as animal, visits.date_of_visit from visits
+JOIN vets ON visits.vet_id = vets.id
+JOIN animals ON visits.animal_id = animals.id
+where vets.name like 'Stephanie Mendez' and visits.date_of_visit between '2020-04-01' and '2020-08-30';
+
+SELECT animals.name as animal, COUNT(visits.date_of_visit) as visit_count from visits
+JOIN animals ON visits.animal_id = animals.id
+group by animals.name
+order by visit_count DESC
+limit 1;
+
+SELECT vets.name as vet, animals.name as animal, visits.date_of_visit from visits
+JOIN vets ON visits.vet_id = vets.id
+JOIN animals ON visits.animal_id = animals.id
+where vets.name like 'Maisy Smith'
+order by visits.date_of_visit
+limit 1;
+
+SELECT animals.name as animal_name, species.name as species, animals.weight_kg,
+vets.name as vet_name, vets.age as vet_age, visits.date_of_visit from visits
+JOIN animals ON visits.animal_id = animals.id
+JOIN species ON animals.species_id = species.id
+JOIN vets ON visits.vet_id = vets.id
+order by visits.date_of_visit DESC
+limit 1;
+
+SELECT COUNT(date_of_visit) from visits
+JOIN animals ON visits.animal_id = animals.id
+LEFT JOIN specializations ON visits.vet_id = specializations.vet_id and animals.species_id = specializations.species_id
+where specializations.species_id is NULL;
+
+SELECT vets.name as vet, species.name as species, COUNT(species.name) as no_of_visit from visits
+JOIN vets ON visits.vet_id = vets.id
+JOIN animals ON visits.animal_id = animals.id
+JOIN species ON animals.species_id = species.id
+where vets.name like 'Maisy Smith'
+group by vets.name, species.name
+order by no_of_visit DESC
+limit 1;
